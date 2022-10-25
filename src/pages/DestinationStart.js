@@ -3,6 +3,8 @@ import { StyleSheet, Image, Text, TouchableOpacity, View } from "react-native";
 import CustomButton from '../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+// import { useState } from 'react';
+// import MapView from "react-native-maps";
 
 const DestinationStart = () => {
 
@@ -11,6 +13,12 @@ const DestinationStart = () => {
     const onStartPressed = () => {
         navigation.navigate("DestinationCall");
     };
+    // const [region, setRegion] = useState({
+    //     latitude: 6.927079,
+    //     longitude: 79.861244,
+    //     latitudeDelta: 0.01,
+    //     longitudeDelta: 0.01,
+    // });
 
 
     return (
@@ -21,7 +29,25 @@ const DestinationStart = () => {
                 style={{ width: '100%', height: '50%', marginTop: '5%' }}
                 source={require('../assets/map.png')}
             />
+            {/* <View style={styles.conMap}> */}
+            {/*Render our MapView*/}
+            {/* <MapView
+                    style={styles.map}
+                    //specify our coordinates.
+                    initialRegion={{
+                        latitude: 37.78825,
+                        longitude: -122.4324,
+                        latitudeDelta: 0.0922,
+                        longitudeDelta: 0.0421,
+                    }}
 
+                    onRegionChangeComplete={(region) => setRegion(region)}
+                /> */}
+
+            {/* <Text style={styles.text}>Current latitude: {region.latitude}</Text>
+                <Text style={styles.text}>Current longitude: {region.longitude}</Text> */}
+            {/* <Marker coordinate={tokyoRegion} /> */}
+            {/* </View> */}
             <Text style={{
                 backgroundColor: '#4A4A4A',
                 padding: 20, color: 'white',
@@ -84,6 +110,15 @@ const styles = StyleSheet.create({
         alignContent: "flex-start",
 
     },
+    // conMap: {
+    //     ...StyleSheet.absoluteFillObject,
+    //     flex: 1, //the container will fill the whole screen.
+    //     justifyContent: "flex-end",
+    //     alignItems: "center",
+    // },
+    // map: {
+    //     ...StyleSheet.absoluteFillObject,
+    // },
 
     flexrow: {
         justifyContent: 'space-between',

@@ -14,6 +14,7 @@ import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Main from '../pages/delivery order/Main';
 import Calendar from '../pages/Calendar';
+import Map from '../pages/Map';
 import ConfirmBox from '../pages/ConfirmBox';
 import DeliveryConfirm from '../pages/DeliveryConfirm';
 import OTP from '../pages/OTP';
@@ -32,12 +33,13 @@ const Navigation = () => {
         <Stack.Screen name="Back" component={Back} />
         <Stack.Screen name="DestinationStart" component={DestinationStart} options={{ title: 'Destination Start' }} />
         <Stack.Screen name="DestinationCall" component={DestinationCall} options={{ title: 'Destination Call' }} />
-        <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} options={{ title: 'Delivery Status' }} />
+        <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} options={{ headerShown: false }} />
 
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={Profile} options={{ title: 'Profile' }} />
         <Stack.Screen name="Main" component={Main} options={{ title: 'Delivery Orders' }} />
         <Stack.Screen name="Calendar" component={Calendar} options={{ title: 'Delivery Status' }} />
+        <Stack.Screen name="Map" component={Map} options={{ title: 'Destination Start' }} />
         <Stack.Screen name="ConfirmBox" component={ConfirmBox} options={{ headerShown: false }} />
         <Stack.Screen name="DeliveryConfirm" component={DeliveryConfirm} options={{ title: 'Order Stutus' }} />
         <Stack.Screen name="OTP" component={OTP} options={{ title: 'Verification' }} />

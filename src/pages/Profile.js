@@ -141,7 +141,7 @@ function Profile({ navigation }) {
                 />
                 <View style={profstyles.verifyButtonArea}>
                     <TouchableOpacity
-                        onPress={() => navigation.navigate('Home')}
+                        onPress={() => navigation.navigate('DeliveryStatus')}
                         style={profstyles.button}
                     >
                         <Text style={profstyles.butText}>Back</Text>

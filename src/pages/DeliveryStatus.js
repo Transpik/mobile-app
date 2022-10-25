@@ -9,21 +9,19 @@ function DeliveryStatus({ navigation }) {
 
     return (
         <View style={styles.container}>
-            {/* <Text style={{
-                backgroundColor: '#E7760E',
-                color: 'white',
-                height: '12%',
-                fontSize: 16,
-                fontWeight: 'bold',
-                textAlign: 'left',
-                padding: 30
-            }}> */}
+            <View style={styles.navBar}>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('Profile')}
+                    style={styles.buttonProf}
+                >
+                    <Image
+                        style={{ width: 50, height: 50, borderRadius: 50, justifyContent: 'center', marginTop: 30, marginLeft: 320 }}
+                        source={require('../assets/pro2.jpg')}
+                    >
+                    </Image>
+                </TouchableOpacity>
 
-            {/* <Icon name="chevron-left" size={20} color="white" /> */}
-            {/* Delivery Status */}
-
-            {/* <Avatar.Image size={32} marginlsource={require('../assets/pro2.jpg')} /> */}
-            {/* </Text> */}
+            </View>
 
 
             <View style={styles.flexrow}>
@@ -111,17 +109,23 @@ const styles = StyleSheet.create({
 
     container: {
         // marginTop: '5%',
-        padding: 20,
+        // padding: 20,
         flex: 1,
-        backgroundColor: '#FFFFFF',
+        // backgroundColor: '#FFFFFF',
         alignContent: "flex-start",
+        // backgroundColor: 'green',
 
     },
-
+    navBar: {
+        height: 100,
+        backgroundColor: 'white',
+        elevation: 5,
+    },
     flexrow: {
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         flexDirection: 'row',
         marginTop: '12%',
+        // backgroundColor: 'pink',
 
     },
 
@@ -130,10 +134,15 @@ const styles = StyleSheet.create({
         flexDirection: 'column',
 
     },
-
+    buttonProf: {
+        // backgroundColor: 'green',
+        width: 5,
+        height: 5,
+    },
 
     content: {
         borderColor: '#E7760E',
+        backgroundColor: 'white',
         borderWidth: 1,
         textAlign: 'center',
         height: 150,
@@ -142,6 +151,7 @@ const styles = StyleSheet.create({
         fontSize: 16,
         borderRadius: 10,
         padding: 10,
+        elevation: 5,
 
     }
 
