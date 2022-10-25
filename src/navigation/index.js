@@ -30,9 +30,9 @@ const Navigation = () => {
         <Stack.Screen name="SignUp" component={SignUp} />
         <Stack.Screen name="ResetPassword" component={ResetPassword} />
         <Stack.Screen name="Back" component={Back} />
-        <Stack.Screen name="DestinationStart" component={DestinationStart} />
-        <Stack.Screen name="DestinationCall" component={DestinationCall} />
-        <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} />
+        <Stack.Screen name="DestinationStart" component={DestinationStart} options={{ title: 'Destination Start' }} />
+        <Stack.Screen name="DestinationCall" component={DestinationCall} options={{ title: 'Destination Call' }} />
+        <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} options={{ title: 'Delivery Status' }} />
 
         <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
         <Stack.Screen name="Profile" component={Profile} options={{ title: 'Profile' }} />
