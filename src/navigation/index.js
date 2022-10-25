@@ -15,6 +15,7 @@ import Profile from '../pages/Profile';
 import Main from '../pages/delivery order/Main';
 import Calendar from '../pages/Calendar';
 import ConfirmBox from '../pages/ConfirmBox';
+import DeliveryConfirm from '../pages/DeliveryConfirm';
 
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
