@@ -1,8 +1,9 @@
-import React from 'react';
-import { StyleSheet, Image, Text, TouchableOpacity, View } from "react-native";
+import React , { useState } from 'react';
+import { StyleSheet, Image, Text, TouchableOpacity, View, SafeAreaView, TextInput } from "react-native";
 import CustomButton from '../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import call from 'react-native-phone-call';
 
 const DestinationCall = () => {
 
@@ -16,12 +17,31 @@ const DestinationCall = () => {
         navigation.navigate("ConfirmBox");
     };
 
+    const [inputValue, setInputValue] = useState('0713946977');
+
+    const triggerCall = () => {
+        // Check for perfect 10 digit length
+        if (inputValue.length != 10) {
+        alert('Please insert correct contact number');
+        return;
+        }
+
+        const args = {
+        number: inputValue,
+        prompt: true,
+        };
+        // Make a call
+        call(args).catch(console.error);
+    };
+      
+    
+
     return (
         <View style={styles.container}>
 
             {/* Map */}
             <Image
-                style={{ width: '100%', height: '35%', marginTop: '5%' }}
+                style={{ width: '100%', height: '25%'}}
                 source={require('../assets/map.png')}
             />
 
@@ -34,25 +54,36 @@ const DestinationCall = () => {
             }}>
                 Distance 5km
 
-
-                {/* Call button */}
-                {/* <CustomButton
-                    text="Call here"
-                    onPress={onCallPressed}
-                    type="SECONDARY"
-                /> */}
-                <TouchableOpacity
+                {/* <TouchableOpacity
                     onPress={() => navigation.navigate('')}
                     style={styles.button}
                 >
                     <Text style={styles.butText}>Call</Text>
 
-                </TouchableOpacity>
+                </TouchableOpacity> */}
             </Text>
+            
+            <SafeAreaView style={styles.container}>
+                <View style={styles.flexrow}>
+                    <TextInput
+                    value={inputValue}
+                    onChangeText={(inputValue) => setInputValue(inputValue)}
+                    placeholder={'Enter Conatct Number to Call'}
+                    keyboardType="numeric"
+                    style={styles.textInput}
+                    />
+                    <TouchableOpacity
+                        activeOpacity={0.7}
+                        style={styles.buttonStyle}
+                        onPress={triggerCall}>
+                        <Text style={styles.buttonTextStyle}>Call</Text>
+                    </TouchableOpacity>
+                </View>
+            </SafeAreaView> 
 
             <View style={styles.flexrow}>
                 <Image
-                    style={{ width: '24%', height: '100%', borderRadius: 400, marginTop: 20 }}
+                    style={{ width: 60, height: 60, borderRadius: 400, marginTop: 4, marginLeft:25 }}
                     source={require('../assets/pro1.jpg')}
                 />
 
@@ -95,38 +126,77 @@ const DestinationCall = () => {
 const styles = StyleSheet.create({
 
     container: {
-        // marginTop: '5%',
         padding: 20,
         flex: 1,
         backgroundColor: '#FFFFFF',
         alignContent: "flex-start",
+        flex: 1,
+        textAlign: 'center'
 
     },
 
-    button: {
+    titleText: {
+        fontSize: 22,
+        textAlign: 'center',
+        fontWeight: 'bold',
+      },
+
+      titleTextsmall: {
+        marginVertical: 8,
+        fontSize: 16,
+      },
+
+      buttonStyle: {
+        justifyContent: 'center',
+        backgroundColor: '#E7760E',
+        borderRadius: 30,
+        width:'35%',
+        color: '#fff',
+      },
+
+      buttonTextStyle: {
+        color: 'white',
+        textAlign: 'center',
+        fontSize: 14,
+        padding: 10,
+      },
+
+      textInput: {
+        height: 40,
+        borderColor: 'gray',
+        borderWidth: 1,
+        width: '60%',
+        paddingHorizontal: 10,
+        marginTop: 2,
+        borderRadius: 20,
+      },
+
+      button: {
         width: 100,
         borderRadius: 50,
         alignItems: 'center',
         backgroundColor: '#E7760E',
 
-    },
-    butText: {
+      },
+
+      butText: {
         fontSize: 16,
         color: 'white',
         padding: 16,
-    },
+      },
 
-    flexrow: {
+      flexrow: {
         justifyContent: 'space-between',
         flexDirection: 'row',
+        alignItems:'center'
 
-    },
+      },
 
-    flexcolumn: {
+      flexcolumn: {
         justifyContent: 'space-between',
         flexDirection: 'column',
 
-    },
+      },
 
 
 })
