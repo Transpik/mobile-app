@@ -16,6 +16,7 @@ import Main from '../pages/delivery order/Main';
 import Calendar from '../pages/Calendar';
 import ConfirmBox from '../pages/ConfirmBox';
 import DeliveryConfirm from '../pages/DeliveryConfirm';
+import OTP from '../pages/OTP';
 
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
