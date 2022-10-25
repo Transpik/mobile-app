@@ -18,7 +18,7 @@ function ConfirmBox({ navigation }) {
                     <View style={stylesMe.done}>
                         <Image
                             style={{ width: 80, height: 80 }}
-                            source={require('../../assets/checked.png')}
+                            source={require('../assets/checked.png')}
                         >
 
                         </Image>
