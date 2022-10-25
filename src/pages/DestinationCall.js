@@ -96,8 +96,10 @@ const DestinationCall = () => {
 
             <Text style={{
                 backgroundColor: '#4A4A4A',
-                padding: 20, color: 'white',
-                fontSize: 16, marginTop: 30
+                padding: 20, 
+                color: 'white',
+                fontSize: 16, 
+                marginTop: 30
             }}>
 
                 <Icon name="tags" size={30} color="white" />

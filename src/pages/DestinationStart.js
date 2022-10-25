@@ -21,27 +21,35 @@ const DestinationStart = () => {
                 style={{ width: '100%', height: '40%'}}
                 source={require('../assets/map.png')}
             />
+            <View style= {{backgroundColor: '#4A4A4A',
+                    padding: 20, 
+                    color: 'white',
+                    fontSize: 20, 
+                    fontWeight: 'bold',
+                    borderTopLeftRadius: 10,
+                    borderTopRightRadius: 10,
+                    justifyContent: 'space-between',
+                    flexDirection: 'row',
+                    alignItems:'center'}} 
+            >
 
-            <Text style={{
-                backgroundColor: '#4A4A4A',
-                padding: 20, 
-                color: 'white',
-                fontSize: 20, 
-                fontWeight: 'bold',
-                borderTopLeftRadius: 10,
-                borderTopRightRadius: 10,
-            }}>
-                Distance 5km
+                <Text style={{
+                    color: 'white',
+                    fontSize: 20, 
+                    fontWeight: 'bold',
+                }}>
+                    Distance 5km 
+                </Text>
 
 
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('DestinationCall')}
-                        style={styles.button}
-                    >
-                        <Text style={styles.butText}>Start</Text>
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('DestinationCall')}
+                    style={styles.button}
+                >
+                    <Text style={styles.butText}>Start</Text>
 
-                    </TouchableOpacity>
-            </Text>
+                </TouchableOpacity>
+            </View>
 
             <View style={styles.flexrow}>
                 <Image
@@ -105,7 +113,7 @@ const styles = StyleSheet.create({
     flexrow: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-
+        alignItems:'center'
     },
 
     flexcolumn: {
