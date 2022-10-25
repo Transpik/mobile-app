@@ -39,7 +39,7 @@ const Navigation = () => {
         <Stack.Screen name="Main" component={Main} options={{ title: 'Delivery Orders' }} />
         <Stack.Screen name="Calendar" component={Calendar} options={{ title: 'Delivery Status' }} />
         <Stack.Screen name="ConfirmBox" component={ConfirmBox} options={{ headerShown: false }} />
-        <Stack.Screen name="DeliveryConfirm" component={DeliveryConfirm} options={{ title: 'Order Stutus' }} />
+        <Stack.Screen name="DeliveryConfirm" component={DeliveryConfirm} options={{ title: 'Order Status' }} />
         <Stack.Screen name="OTP" component={OTP} options={{ title: 'Verification' }} />
 
       </Stack.Navigator>

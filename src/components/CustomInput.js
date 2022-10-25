@@ -29,7 +29,6 @@ const styles = StyleSheet.create({
         marginVertical: 5,
     },
 
-    
     input: {},
 });
 

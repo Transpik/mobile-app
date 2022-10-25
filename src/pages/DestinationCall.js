@@ -36,11 +36,18 @@ const DestinationCall = () => {
 
 
                 {/* Call button */}
-                <CustomButton
+                {/* <CustomButton
                     text="Call here"
                     onPress={onCallPressed}
                     type="SECONDARY"
-                />
+                /> */}
+                <TouchableOpacity
+                    onPress={() => navigation.navigate('')}
+                    style={styles.button}
+                >
+                    <Text style={styles.butText}>Call</Text>
+
+                </TouchableOpacity>
             </Text>
 
             <View style={styles.flexrow}>
@@ -94,6 +101,19 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         alignContent: "flex-start",
 
+    },
+
+    button: {
+        width: 100,
+        borderRadius: 50,
+        alignItems: 'center',
+        backgroundColor: '#E7760E',
+
+    },
+    butText: {
+        fontSize: 16,
+        color: 'white',
+        padding: 16,
     },
 
     flexrow: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Image, Text, TouchableOpacity, View } from "react-native";
-import CustomButton from '../components/CustomButton/CustomButton';
+//import CustomButton from '../components/CustomButton/CustomButton';
 import { useNavigation } from '@react-navigation/native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
@@ -18,26 +18,29 @@ const DestinationStart = () => {
 
             {/* Map */}
             <Image
-                style={{ width: '100%', height: '50%', marginTop: '5%' }}
+                style={{ width: '100%', height: '40%'}}
                 source={require('../assets/map.png')}
             />
 
             <Text style={{
                 backgroundColor: '#4A4A4A',
-                padding: 20, color: 'white',
-                fontSize: 20, fontWeight: 'bold',
+                padding: 20, 
+                color: 'white',
+                fontSize: 20, 
+                fontWeight: 'bold',
                 borderTopLeftRadius: 10,
-                borderTopRightRadius: 10
+                borderTopRightRadius: 10,
             }}>
                 Distance 5km
 
 
-                {/* Start button */}
-                <CustomButton
-                    text="Start here"
-                    onPress={onStartPressed}
-                    type="SECONDARY"
-                />
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate('DestinationCall')}
+                        style={styles.button}
+                    >
+                        <Text style={styles.butText}>Start</Text>
+
+                    </TouchableOpacity>
             </Text>
 
             <View style={styles.flexrow}>
@@ -55,8 +58,10 @@ const DestinationStart = () => {
 
             <Text style={{
                 backgroundColor: '#4A4A4A',
-                padding: 20, color: 'white',
-                fontSize: 16, marginTop: 30
+                padding: 20, 
+                color: 'white',
+                fontSize: 16, 
+                marginTop: 30
             }}>
 
                 <Icon name="tags" size={30} color="white" />
@@ -77,12 +82,24 @@ const DestinationStart = () => {
 const styles = StyleSheet.create({
 
     container: {
-        // marginTop: '5%',
         padding: 20,
         flex: 1,
         backgroundColor: '#FFFFFF',
         alignContent: "flex-start",
 
+    },
+
+    button: {
+        width: 100,
+        borderRadius: 50,
+        alignItems: 'center',
+        backgroundColor: '#E7760E',
+
+    },
+    butText: {
+        fontSize: 16,
+        color: 'white',
+        padding: 14,
     },
 
     flexrow: {

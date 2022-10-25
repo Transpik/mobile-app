@@ -14,17 +14,25 @@ const ResetPassword = () => {
   const navigation = useNavigation();
 
   const onSavePressed = () => {
-    // console.warn("onSavePressed");
+    //Check for the email phone number TextInput
+    if (!emailPhone.trim()) {
+      alert('Please Enter Email or Phone Number');
+      return;
+    }
+    //Check for the Old password TextInput
+    if (!password.trim()) {
+        alert('Please Enter Old Password');
+        return;
+    }
+
+    //Check for the New password TextInput
+    if (!passwordRepeat.trim()) {
+      alert('Please Enter New Password');
+      return;
+    }
     navigation.navigate("DeliveryStatus");
   };
 
-  const onBackPressed = () => {
-    navigation.navigate("Back");
-  };
-
-  const onMapPressed = () => {
-    navigation.navigate("DestinationStart");
-  };
 
 
   return (
@@ -34,7 +42,7 @@ const ResetPassword = () => {
 
       {/* Logo */}
       <Image
-        style={{ width: '70%', height: 100, marginLeft: '15%', marginTop: '25%' }}
+        style={{ width: '70%', height: 100, marginLeft: '15%', marginTop: '5%' }}
         source={require('../assets/Logo.png')}
       />
 
@@ -44,49 +52,63 @@ const ResetPassword = () => {
 
       {/* Email or Phone */}
       <Text style={styles.labels}> Email or Phone Number </Text>
-      <CustomInput
+      {/* <CustomInput
         value={emailPhone}
         setValue={setEmailPhone}
+      /> */}
+      <TextInput
+        style={styles.feild}
+        onChangeText={
+            (value) => setEmailPhone(value)
+        }
+        value={emailPhone}
+        keyboardType="name-phone-pad"
       />
 
 
       {/*Old Password */}
       <Text style={styles.labels}> Old Password </Text>
-      <CustomInput
+      {/* <CustomInput
         value={password}
         name="oldpassword"
         textContentType="Password"
         setValue={setPassword}
         secureTextEntry
+      /> */}
+
+      <TextInput
+        style={styles.feild}
+        onChangeText={
+            (value) => setPassword(value)
+        }
+        value={password}
+        secureTextEntry={true}
+        keyboardType="name-phone-pad"
       />
 
       {/*New Password */}
       <Text style={styles.labels}> New Password </Text>
-      <CustomInput
+      {/* <CustomInput
         value={passwordRepeat}
         name="newpassword"
         textContentType="Password"
         setValue={setPasswordRepeat}
         secureTextEntry
+      /> */}
+
+      <TextInput
+        style={styles.feild}
+        onChangeText={
+            (value) => setPasswordRepeat(value)
+        }
+        value={passwordRepeat}
+        secureTextEntry={true}
+        keyboardType="name-phone-pad"
       />
 
       <Text> {'\n'}</Text>
 
       <CustomButton text="Save" onPress={onSavePressed} />
-
-      {/* Back */}
-      <CustomButton
-        text="<< Back "
-        onPress={onBackPressed}
-        type="TERTIARY"
-      />
-
-      {/* map */}
-      <CustomButton
-        text="Map  >> "
-        onPress={onMapPressed}
-        type="TERTIARY"
-      />
 
     </View>
   )
@@ -95,7 +117,6 @@ const ResetPassword = () => {
 const styles = StyleSheet.create({
 
   container: {
-    marginTop: 10,
     padding: 20,
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -117,6 +138,16 @@ const styles = StyleSheet.create({
     textAlign: 'left',
     color: '#B3B3B3',
 
+  },
+
+  feild: {
+    backgroundColor: 'white',
+    width: '90%',
+    marginLeft: '5%',
+    borderBottomWidth: 1,
+    borderBottomColor: '#e8e8e8',
+    paddingHorizontal: 10,
+    marginVertical: 5,
   },
 
 
