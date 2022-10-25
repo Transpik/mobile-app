@@ -1,4 +1,5 @@
-import * as React from 'react';
+//import * as React from 'react';
+import React, {useState} from 'react'
 import { StyleSheet, Image, Text, TextInput, TouchableOpacity, View, useWindowDimensions } from "react-native";
 import CustomButton from '../components/CustomButton/CustomButton';
 import CustomInput from '../components/CustomInput';
@@ -12,22 +13,67 @@ const SignUp = () => {
   const [password, setPassword] = React.useState('');
 
   const [checked, setChecked] = React.useState(false);
+  const [emailError, setEmailError] = useState("");
+    const [passwordError, setPasswordError] = useState("");
 
   
 
-  const checkTextInput = () => {
-    //Check for the email phone number TextInput
-    if (!emailPhone.trim()) {
-        alert('Please Enter Email or Phone Number');
-        return;
-    }
-    //Check for the password TextInput
-    if (!password.trim()) {
-        alert('Please Enter Password');
-        return;
-    }
-    navigation.navigate('DeliveryStatus')
+//   const checkTextInput = () => {
+//     //Check for the email phone number TextInput
+//     if (!emailPhone.trim()) {
+//         alert('Please Enter Email or Phone Number');
+//         return;
+//     }
+//     //Check for the password TextInput
+//     if (!password.trim()) {
+//         alert('Please Enter Password');
+//         return;
+//     }
+//     navigation.navigate('DeliveryStatus')
+// };
+
+
+const checkTextInput = () => {
+  var emailValid = false;
+  if(emailPhone.length == 0){
+      setEmailError("*Email is required");
+  }        
+  else if(emailPhone.length < 6){
+      setEmailError("*Email should be minimum 6 characters");
+  }      
+  else if(emailPhone.indexOf(' ') >= 0){        
+      setEmailError('*Email cannot contain spaces');                          
+  }    
+  else{
+      setEmailError("")
+      emailValid = true
+  }
+
+  var passwordValid = false;
+  if(password.length == 0){
+      setPasswordError("*Password is required");
+  }        
+  else if(password.length < 6){
+      setPasswordError("*Password should be minimum 6 characters");
+  }      
+  else if(password.indexOf(' ') >= 0){ 
+    setPasswordError('*Password cannot contain spaces');                          
+        }    
+        else{
+            setPasswordError("")
+            passwordValid = true
+        }        
+    
+        if(emailValid && passwordValid){            
+            setEmailPhone("");
+            setPassword("");
+
+            navigation.navigate('DeliveryStatus')
+        }        
+    
+        
 };
+
 
   const { height } = useWindowDimensions();
   const navigation = useNavigation();
@@ -54,11 +100,6 @@ const SignUp = () => {
 
       {/* Email or Phone */}
       <Text style={styles.labels}> Email or Phone Number </Text>
-      {/* <CustomInput
-        value={emailPhone}
-        setValue={setEmailPhone}
-        onChangeText={(text) => handleCheckEmail(text)}
-      /> */}
 
       <TextInput
         style={styles.feild}
@@ -68,22 +109,13 @@ const SignUp = () => {
         value={emailPhone}
         keyboardType="name-phone-pad"
       />
-
-
-
-      {/* {checkValidEmail ? <Text style={styles.textFailed}>Wrong format</Text>
-        : <Text style={styles.textFailed}>Wrong Format</Text>} */}
+      {emailError.length > 0 &&
+                  <Text style = {{color:'red'}}>{emailError}</Text>
+      }
 
 
       {/* Password */}
       <Text style={styles.labels}> Password </Text>
-      {/* <CustomInput
-        value={password}
-        name="password"
-        textContentType="Password"
-        setValue={setPassword}
-        secureTextEntry={true}
-      /> */}
 
       <TextInput
         style={styles.feild}
@@ -94,6 +126,11 @@ const SignUp = () => {
         secureTextEntry={true}
         keyboardType="name-phone-pad"
       />
+
+{passwordError.length > 0 &&
+            
+            <Text style = {{color:'red'}}>{passwordError}</Text>
+          }
 
       <View style={styles.flexrow}> 
         <Text style={styles.remem}>
