@@ -10,7 +10,8 @@ import DestinationStart from '../pages/DestinationStart';
 import DestinationCall from '../pages/DestinationCall';
 import DeliveryStatus from '../pages/DeliveryStatus';
 //import new added navigators path
-
+import Home from '../pages/Home';
+import Profile from '../pages/Profile';
 
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
