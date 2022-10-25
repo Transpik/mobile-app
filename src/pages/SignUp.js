@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import { StyleSheet, Image,Text, TextInput, TouchableOpacity, View, useWindowDimensions } from "react-native";
+import React, { useState } from 'react';
+import { StyleSheet, Image, Text, TextInput, TouchableOpacity, View, useWindowDimensions } from "react-native";
 import CustomButton from '../components/CustomButton/CustomButton';
 import CustomInput from '../components/CustomInput';
 import { useNavigation } from '@react-navigation/native';
@@ -7,7 +7,7 @@ import { Checkbox } from 'react-native-paper';
 
 
 const SignUp = () => {
-  
+
   const [emailPhone, setEmailPhone] = useState('');
   const [password, setPassword] = useState('');
   const [seePassword, setSeePassword] = useState(true);
@@ -15,22 +15,23 @@ const SignUp = () => {
 
   const [checked, setChecked] = React.useState(false);
 
-  const handleCheckEmail = (text) =>{
+  const handleCheckEmail = (text) => {
     let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-  
+
     setEmailPhone(text);
-    if (re.test(text)){
+    if (re.test(text)) {
       setCheckValidEmail(false);
     } else {
       setCheckValidEmail(true);
-    } 
+    }
   };
 
-  const {height} = useWindowDimensions();
+  const { height } = useWindowDimensions();
   const navigation = useNavigation();
 
   const onSignInPressed = () => {
-    console.warn("Sign in");
+    // console.warn("Sign in");
+    navigation.navigate("DeliveryStatus");
   };
 
   const onForgotPasswordPressed = () => {
@@ -43,10 +44,10 @@ const SignUp = () => {
     <View style={styles.container}>
 
       {/* Logo */}
-        <Image
-            style={{width:'70%', height:100, marginLeft: '15%', marginTop:'25%'}}
-            source={require('../assets/Logo.png')}
-        />
+      <Image
+        style={{ width: '70%', height: 100, marginLeft: '15%', marginTop: '25%' }}
+        source={require('../assets/Logo.png')}
+      />
 
       {/* Login */}
       <Text style={styles.logincolor}> Login </Text>
@@ -54,25 +55,25 @@ const SignUp = () => {
 
       {/* Email or Phone */}
       <Text style={styles.labels}> Email or Phone Number </Text>
-      <CustomInput  
-        value={emailPhone} 
+      <CustomInput
+        value={emailPhone}
         setValue={setEmailPhone}
-        onChangeText = {(text)=>handleCheckEmail(text)}
+        onChangeText={(text) => handleCheckEmail(text)}
       />
 
       {checkValidEmail ? <Text style={styles.textFailed}>Wrong format</Text>
-      : <Text style={styles.textFailed}>Wrong Format</Text>}
+        : <Text style={styles.textFailed}>Wrong Format</Text>}
 
 
       {/* Password */}
       <Text style={styles.labels}> Password </Text>
-      <CustomInput 
-        value={password} 
+      <CustomInput
+        value={password}
         name="password"
         textContentType="Password"
-        setValue={setPassword}  
+        setValue={setPassword}
         //secureTextEntry ={seePassword}
-        secureTextEntry ={true}
+        secureTextEntry={true}
       />
       <Text style={styles.remem}>
         <Checkbox
@@ -82,16 +83,16 @@ const SignUp = () => {
           }}
         />
         Remember me {'\n'} {'\n'}
-       </Text>
+      </Text>
 
 
-      <CustomButton text="Login" onPress={onSignInPressed}/>
+      <CustomButton text="Login" onPress={onSignInPressed} />
 
 
       {/* Forgot password */}
-      <CustomButton 
-        text="Forgot password ?" 
-        onPress={onForgotPasswordPressed} 
+      <CustomButton
+        text="Forgot password ?"
+        onPress={onForgotPasswordPressed}
         type="TERTIARY"
       />
 
@@ -102,39 +103,39 @@ const SignUp = () => {
 
 const styles = StyleSheet.create({
 
-    container: {
-      marginTop: 10,
-      padding: 20,
-      flex: 1,
-      backgroundColor: '#FFFFFF',
-      alignContent: "flex-start",
-    
-    },
+  container: {
+    marginTop: 10,
+    padding: 20,
+    flex: 1,
+    backgroundColor: '#FFFFFF',
+    alignContent: "flex-start",
 
-    logincolor: {
-        color: '#E7760E',
-        fontSize: 40,
-        marginTop: '25%',
-        textAlign: 'center',
-    },
+  },
 
-    labels: {
-      fontSize: 16,
-      marginTop: 40, 
-      marginLeft: '5%',
-      textAlign:'left',
-      color: '#B3B3B3',
+  logincolor: {
+    color: '#E7760E',
+    fontSize: 40,
+    marginTop: '25%',
+    textAlign: 'center',
+  },
 
-    },
+  labels: {
+    fontSize: 16,
+    marginTop: 40,
+    marginLeft: '5%',
+    textAlign: 'left',
+    color: '#B3B3B3',
+
+  },
 
 
-    remem: {
-     textAlign: 'left',
-     marginLeft: '10%',
-     color: "#757575",
-    }
+  remem: {
+    textAlign: 'left',
+    marginLeft: '10%',
+    color: "#757575",
+  }
 
-  
+
 
 })
 
