@@ -77,7 +77,7 @@ const DestinationStart = () => {
 const styles = StyleSheet.create({
 
     container: {
-        marginTop: '5%',
+        // marginTop: '5%',
         padding: 20,
         flex: 1,
         backgroundColor: '#FFFFFF',

@@ -9,7 +9,7 @@ function DeliveryStatus({ navigation }) {
 
     return (
         <View style={styles.container}>
-            <Text style={{
+            {/* <Text style={{
                 backgroundColor: '#E7760E',
                 color: 'white',
                 height: '12%',
@@ -17,13 +17,13 @@ function DeliveryStatus({ navigation }) {
                 fontWeight: 'bold',
                 textAlign: 'left',
                 padding: 30
-            }}>
+            }}> */}
 
-                {/* <Icon name="chevron-left" size={20} color="white" /> */}
-                Delivery Status
+            {/* <Icon name="chevron-left" size={20} color="white" /> */}
+            {/* Delivery Status */}
 
-                <Avatar.Image size={32} marginlsource={require('../assets/pro2.jpg')} />
-            </Text>
+            {/* <Avatar.Image size={32} marginlsource={require('../assets/pro2.jpg')} /> */}
+            {/* </Text> */}
 
 
             <View style={styles.flexrow}>
@@ -110,7 +110,7 @@ function DeliveryStatus({ navigation }) {
 const styles = StyleSheet.create({
 
     container: {
-        marginTop: '5%',
+        // marginTop: '5%',
         padding: 20,
         flex: 1,
         backgroundColor: '#FFFFFF',

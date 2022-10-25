@@ -45,7 +45,7 @@ const SignUp = () => {
 
       {/* Logo */}
       <Image
-        style={{ width: '70%', height: 100, marginLeft: '15%', marginTop: '25%' }}
+        style={{ width: '70%', height: 100, marginLeft: '15%', marginTop: '18%' }}
         source={require('../assets/Logo.png')}
       />
 
@@ -61,8 +61,8 @@ const SignUp = () => {
         onChangeText={(text) => handleCheckEmail(text)}
       />
 
-      {checkValidEmail ? <Text style={styles.textFailed}>Wrong format</Text>
-        : <Text style={styles.textFailed}>Wrong Format</Text>}
+      {/* {checkValidEmail ? <Text style={styles.textFailed}>Wrong format</Text>
+        : <Text style={styles.textFailed}>Wrong Format</Text>} */}
 
 
       {/* Password */}
@@ -104,7 +104,7 @@ const SignUp = () => {
 const styles = StyleSheet.create({
 
   container: {
-    marginTop: 10,
+    // marginTop: 10,
     padding: 20,
     flex: 1,
     backgroundColor: '#FFFFFF',
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
   logincolor: {
     color: '#E7760E',
     fontSize: 40,
-    marginTop: '25%',
+    marginTop: '10%',
     textAlign: 'center',
   },
 
