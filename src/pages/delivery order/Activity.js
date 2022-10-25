@@ -3,7 +3,7 @@ import { number, Image, TouchableOpacity, Text, View, StyleSheet, ScrollView, Te
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-function ActivityScreen() {
+function ActivityScreen({ navigation }) {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.scrollView}>
@@ -13,10 +13,18 @@ function ActivityScreen() {
                 <View style={styles.cardBox}>
                     <View style={styles.cards}>
                         <View style={styles.row}>
-                            <Text style={styles.subText}>Ms. Diana Kumari</Text>
-                            <Text style={styles.subText}>Pick up from Ali Express</Text>
-                            <Text style={styles.subText}>Nov 04, 2022</Text>
-                            <Text style={styles.subText}>No. 15, Will's Street, Negambo</Text>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate('Calendar')}
+                            // style={styles.button}
+                            >
+                                <Text style={styles.subText}>Ms. Diana Kumari</Text>
+                                <Text style={styles.subText}>Pick up from Ali Express</Text>
+                                <Text style={styles.subText}>Nov 04, 2022</Text>
+                                <Text style={styles.subText}>No. 15, Will's Street, Negambo</Text>
+
+                            </TouchableOpacity>
+
+
                         </View>
                         <View style={styles.row}>
                             <Text style={styles.subText}>Ms. Diana Kumari</Text>

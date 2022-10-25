@@ -1,8 +1,8 @@
 import * as React from "react";
 // import Dialog from "react-native-dialog";
 // import { useState } from "react";
-import AppBar from "../AppBar";
-import Button from "../Button";
+
+// import Button from "../Button";
 import { number, Image, TouchableOpacity, Text, View, StyleSheet, TextInput, Alert } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -11,7 +11,7 @@ function ConfirmBox({ navigation }) {
     // const confirm = () => Alert.alert("login");
     return (
         <View style={stylesMe.cnt}>
-            {/* <AppBar name="Order Status" /> */}
+
             <View style={stylesMe.viewBox}>
                 <View style={stylesMe.promptBox}>
                     <Text style={stylesMe.headText}>Confirm Delivery</Text>
@@ -27,7 +27,7 @@ function ConfirmBox({ navigation }) {
                     <Text style={stylesMe.bodyText}>Make sure everything is good.</Text>
                     <View style={stylesMe.btnBox}>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('Main')}
+                            onPress={() => navigation.navigate('DestinationCall')}
                             style={stylesMe.button}
                         >
                             <Text style={stylesMe.butText}>Not yet</Text>

@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Image, TouchableOpacity, Icon, TouchableHighlight, Text, View, StyleSheet, Dimensions, TextInput, ScrollView } from 'react-native';
-import { data } from '../../data/prof';
+// import { data } from '../../data/prof';
 // import { Link } from "react-router-dom";
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -39,7 +39,7 @@ function Profile({ navigation }) {
                 </Image>
                 <Image
                     style={profstyles.profImage}
-                    source={require('../assets/ima.jpg')}
+                    source={require('../assets/pro2.jpg')}
                 >
                 </Image>
                 <Text style={profstyles.text}>

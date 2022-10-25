@@ -25,7 +25,7 @@ function Calendar({ navigation }) {
                     <View style={stylesMe.details}>
                         <Text style={stylesMe.textStyle}>#125876</Text>
                         <TouchableOpacity
-                            onPress={() => navigation.navigate('ConfirmBox')}
+                            onPress={() => navigation.navigate('DestinationStart')}
                             style={stylesMe.button}
                         >
                             <Text style={stylesMe.butText}>Map</Text>

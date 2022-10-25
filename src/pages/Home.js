@@ -21,7 +21,7 @@ function Home({ navigation }) {
             </View>
             <View style={styles.btnArea}>
                 <TouchableOpacity
-                    onPress={() => navigation.navigate('Calendar')}
+                    onPress={() => navigation.navigate('SignUp')}
                     style={styles.button}
                 >
                     <Text style={styles.butText}>Get Started</Text>
