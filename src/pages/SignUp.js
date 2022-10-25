@@ -14,7 +14,7 @@ const SignUp = () => {
 
   const [checked, setChecked] = React.useState(false);
   const [emailError, setEmailError] = useState("");
-    const [passwordError, setPasswordError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
 
   
 
@@ -127,10 +127,10 @@ const checkTextInput = () => {
         keyboardType="name-phone-pad"
       />
 
-{passwordError.length > 0 &&
+      {passwordError.length > 0 &&
             
-            <Text style = {{color:'red'}}>{passwordError}</Text>
-          }
+        <Text style = {{color:'red'}}>{passwordError}</Text>
+      }
 
       <View style={styles.flexrow}> 
         <Text style={styles.remem}>

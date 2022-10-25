@@ -10,28 +10,87 @@ const ResetPassword = () => {
   const [password, setPassword] = useState('');
   const [passwordRepeat, setPasswordRepeat] = useState('');
 
+  const [emailError, setEmailError] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+  const [passwordRepeatError, setPasswordRepeatError] = useState("");
 
   const navigation = useNavigation();
 
-  const onSavePressed = () => {
-    //Check for the email phone number TextInput
-    if (!emailPhone.trim()) {
-      alert('Please Enter Email or Phone Number');
-      return;
-    }
-    //Check for the Old password TextInput
-    if (!password.trim()) {
-        alert('Please Enter Old Password');
-        return;
-    }
+  // const onSavePressed = () => {
+  //   //Check for the email phone number TextInput
+  //   if (!emailPhone.trim()) {
+  //     alert('Please Enter Email or Phone Number');
+  //     return;
+  //   }
+  //   //Check for the Old password TextInput
+  //   if (!password.trim()) {
+  //       alert('Please Enter Old Password');
+  //       return;
+  //   }
 
-    //Check for the New password TextInput
-    if (!passwordRepeat.trim()) {
-      alert('Please Enter New Password');
-      return;
-    }
-    navigation.navigate("DeliveryStatus");
-  };
+  //   //Check for the New password TextInput
+  //   if (!passwordRepeat.trim()) {
+  //     alert('Please Enter New Password');
+  //     return;
+  //   }
+  //   navigation.navigate("DeliveryStatus");
+  // };
+
+      const onSavePressed = () => {
+        var emailValid = false;
+        if(emailPhone.length == 0){
+            setEmailError("*Email is required");
+        }        
+        else if(emailPhone.length < 6){
+            setEmailError("*Email should be minimum 6 characters");
+        }      
+        else if(emailPhone.indexOf(' ') >= 0){        
+            setEmailError('*Email cannot contain spaces');                          
+        }    
+        else{
+            setEmailError("")
+            emailValid = true
+        }
+      
+        var passwordValid = false;
+        if(password.length == 0){
+            setPasswordError("*Old Password is required");
+        }        
+        else if(password.length < 6){
+            setPasswordError("*Password should be minimum 6 characters");
+        }      
+        else if(password.indexOf(' ') >= 0){ 
+          setPasswordError('*Password cannot contain spaces');                          
+              }    
+        else{
+            setPasswordError("")
+            passwordValid = true
+        } 
+        
+        var passwordRepeatValid = false;
+        if(passwordRepeat.length == 0){
+            setPasswordRepeatError("*New Password is required");
+        }        
+        else if(passwordRepeat.length < 6){
+            setPasswordRepeatError("*Password should be minimum 6 characters");
+        }      
+        else if(passwordRepeat.indexOf(' ') >= 0){ 
+          setPasswordRepeatError('*Password cannot contain spaces');                          
+              }    
+        else{
+            setPasswordRepeatError("")
+            passwordRepeatValid = true
+        } 
+          
+              if(emailValid && passwordValid && passwordRepeatValid){            
+                  setEmailPhone("");
+                  setPassword("");
+                  setPasswordRepeat("");
+      
+                  navigation.navigate('SignUp')
+              }     
+
+      }
 
 
 
@@ -52,10 +111,6 @@ const ResetPassword = () => {
 
       {/* Email or Phone */}
       <Text style={styles.labels}> Email or Phone Number </Text>
-      {/* <CustomInput
-        value={emailPhone}
-        setValue={setEmailPhone}
-      /> */}
       <TextInput
         style={styles.feild}
         onChangeText={
@@ -64,17 +119,13 @@ const ResetPassword = () => {
         value={emailPhone}
         keyboardType="name-phone-pad"
       />
+      {emailError.length > 0 &&
+                  <Text style = {{color:'red'}}>{emailError}</Text>
+      }
 
 
       {/*Old Password */}
       <Text style={styles.labels}> Old Password </Text>
-      {/* <CustomInput
-        value={password}
-        name="oldpassword"
-        textContentType="Password"
-        setValue={setPassword}
-        secureTextEntry
-      /> */}
 
       <TextInput
         style={styles.feild}
@@ -86,15 +137,13 @@ const ResetPassword = () => {
         keyboardType="name-phone-pad"
       />
 
+      {passwordError.length > 0 &&
+            
+        <Text style = {{color:'red'}}>{passwordError}</Text>
+      }
+
       {/*New Password */}
       <Text style={styles.labels}> New Password </Text>
-      {/* <CustomInput
-        value={passwordRepeat}
-        name="newpassword"
-        textContentType="Password"
-        setValue={setPasswordRepeat}
-        secureTextEntry
-      /> */}
 
       <TextInput
         style={styles.feild}
@@ -105,6 +154,11 @@ const ResetPassword = () => {
         secureTextEntry={true}
         keyboardType="name-phone-pad"
       />
+
+      {passwordRepeatError.length > 0 &&
+            
+        <Text style = {{color:'red'}}>{passwordRepeatError}</Text>
+      }
 
       <Text> {'\n'}</Text>
 
