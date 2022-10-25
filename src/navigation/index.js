@@ -13,6 +13,7 @@ import DeliveryStatus from '../pages/DeliveryStatus';
 import Home from '../pages/Home';
 import Profile from '../pages/Profile';
 import Main from '../pages/delivery order/Main';
+import Calendar from '../pages/Calendar';
 
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
