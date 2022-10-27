@@ -10,27 +10,31 @@ import DestinationStart from '../pages/DestinationStart';
 import DestinationCall from '../pages/DestinationCall';
 import DeliveryStatus from '../pages/DeliveryStatus';
 
+import Home from '../pages/Home';
 
 
 
 const Stack = createNativeStackNavigator();
 
-const Navigation = () =>  {
-  
-    return (
-      <NavigationContainer>
-        <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name="SignUp" component={SignUp} />
-            <Stack.Screen name="ResetPassword" component={ResetPassword} />
-            <Stack.Screen name="Back" component={Back} />
-            <Stack.Screen name="DestinationStart" component={DestinationStart} />
-            <Stack.Screen name="DestinationCall" component={DestinationCall} />
-            <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} />
+const Navigation = () => {
 
-        </Stack.Navigator>
-      </NavigationContainer>
-    );
-  
+  return (
+    <NavigationContainer>
+      <Stack.Navigator initialRouteName='Home'>
+        <Stack.Screen name="SignUp" component={SignUp} />
+        <Stack.Screen name="ResetPassword" component={ResetPassword} />
+        <Stack.Screen name="Back" component={Back} />
+        <Stack.Screen name="DestinationStart" component={DestinationStart} />
+        <Stack.Screen name="DestinationCall" component={DestinationCall} />
+        <Stack.Screen name="DeliveryStatus" component={DeliveryStatus} />
+
+        <Stack.Screen name="Home" component={Home} options={{ headerShown: false }} />
+        <Stack.Screen name="Map" component={Map} />
+
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+
 };
 
 export default Navigation;
