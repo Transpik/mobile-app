@@ -9,6 +9,17 @@ function DeliveryStatus({ navigation }) {
 
     return (
         <View style={styles.container}>
+            <View style={styles.appBar}>
+                <TouchableOpacity>
+                    onPress={() => navigation.navigate('Profile')}
+                    <Image
+                        style={{ width: 30, height: 30, marginTop: 15, marginLeft: 100 }}
+                        source={require('../assets/pro2.jpg')}
+                    >
+
+                    </Image>
+                </TouchableOpacity>
+            </View>
             {/* <Text style={{
                 backgroundColor: '#E7760E',
                 color: 'white',
@@ -116,6 +127,14 @@ const styles = StyleSheet.create({
         backgroundColor: '#FFFFFF',
         alignContent: "flex-start",
 
+    },
+    appBar: {
+
+        height: 80,
+        // width: 400,
+        flexDirection: 'row',
+        alignItems: 'flex-end',
+        backgroundColor: '#E7760E',
     },
 
     flexrow: {
