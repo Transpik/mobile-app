@@ -19,6 +19,7 @@ import DeliveryConfirm from '../pages/DeliveryConfirm';
 import OTP from '../pages/OTP';
 import Map from '../pages/Map';
 import AppBar from '../pages/AppBar';
+import Button from '../components/CustomButton/Button';
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
 const Stack = createNativeStackNavigator();
@@ -44,6 +45,7 @@ const Navigation = () => {
         <Stack.Screen name="OTP" component={OTP} options={{ title: 'Verification' }} />
         <Stack.Screen name="Map" component={Map} options={{ title: 'Tracking' }} />
         <Stack.Screen name="AppBar" component={AppBar} />
+        <Stack.Screen name="Button" component={Button} />
       </Stack.Navigator>
     </NavigationContainer>
   );
