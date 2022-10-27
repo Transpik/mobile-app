@@ -18,6 +18,7 @@ import ConfirmBox from '../pages/ConfirmBox';
 import DeliveryConfirm from '../pages/DeliveryConfirm';
 import OTP from '../pages/OTP';
 import Map from '../pages/Map';
+import AppBar from '../pages/AppBar';
 //screenOptions remove from Stack.Navigator => screenOptions={{headerShown: false}}
 
 const Stack = createNativeStackNavigator();
@@ -42,6 +43,7 @@ const Navigation = () => {
         <Stack.Screen name="DeliveryConfirm" component={DeliveryConfirm} options={{ title: 'Order Status' }} />
         <Stack.Screen name="OTP" component={OTP} options={{ title: 'Verification' }} />
         <Stack.Screen name="Map" component={Map} options={{ title: 'Tracking' }} />
+        <Stack.Screen name="AppBar" component={AppBar} />
       </Stack.Navigator>
     </NavigationContainer>
   );
